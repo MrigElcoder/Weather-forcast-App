@@ -3,6 +3,8 @@ const weatherApi = {
     baseUrl: "https://api.openweathermap.org/data/2.5/weather", 
 }
 const searchInputBox = document.getElementById('input-box');
+
+// Event Listener Function on keypress
 searchInputBox.addEventListener('keypress', (event) => {
     
     if(event.keyCode == 13) {
@@ -12,12 +14,16 @@ searchInputBox.addEventListener('keypress', (event) => {
     }
 
 });
+
+// Get Weather Report
 function getWeatherReport(city) {
     fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)
     .then(weather => {
         return weather.json();
     }).then(showWeatherReport);
 }
+
+// Show Weather Report
 function showWeatherReport(weather){
     console.log(weather);
 
@@ -62,6 +68,8 @@ function showWeatherReport(weather){
         
     } 
 }
+
+// Date manage
 function dateManage(dateArg) {
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
